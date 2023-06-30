@@ -110,9 +110,11 @@ public class HelloWorldController {
 
     }
 
+    // /helloWorldResponseFake/C001
     @GetMapping("/helloWorldResponseFake/{companyId}")
     public ResponseEntity<Object> helloWorldResponseFake(@PathVariable String companyId) {
-        ArrayList arrayList = helloWorldService.fakeSelect(companyId);
+        ArrayList arrayList = new ArrayList<>();
+        helloWorldService.fakeSelect(companyId);
 
         return ResponseEntity.ok().body(arrayList);
 
