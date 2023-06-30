@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class SharedDao {
     
-    
     @Autowired
     //MyBatis와 연결되어 있음 (관련 기능을 import)
     private SqlSessionTemplate sqlSessionTemplate;
