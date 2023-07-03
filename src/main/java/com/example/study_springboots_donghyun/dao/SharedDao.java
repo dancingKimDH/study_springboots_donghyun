@@ -1,8 +1,9 @@
-package com.example.dao;
+package com.example.study_springboots_donghyun.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class SharedDao {

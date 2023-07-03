@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.example.dao.SharedDao;
+import com.example.study_springboots_donghyun.dao.SharedDao;
 
 @Service
 public class HelloWorldService {
