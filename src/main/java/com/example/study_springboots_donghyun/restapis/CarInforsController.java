@@ -14,6 +14,7 @@ public class CarInforsController {
     @Autowired
     CarInforsService carinforsservice;
 
+    // /selectDetail/CI002
     @GetMapping("/selectDetail/{CAR_INFOR_ID}")
     public ResponseEntity selectDetail(@PathVariable String CAR_INFOR_ID) {
         

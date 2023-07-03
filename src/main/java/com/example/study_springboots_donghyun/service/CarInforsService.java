@@ -16,10 +16,10 @@ public class CarInforsService {
     // controller에서 특정 정보를 넣으면 Mapper에 연결, SelectDetail이 호출, Service에 연결,
     // Service에서 Selectdetail을 호출, SharedDao를 호출, SharedDao는 XML을 호출
     // 어디에서 어떤 값을 호출할지가 정확해야 함
-    
+
     public Object selectDetail(String CAR_INFOR_ID) {
         // Object getOne(String sqlMapId, Object dataMap){
-        String sqlMapId = "CarInfors.selectbyUID";
+        String sqlMapId = "CarInfors.selectByUID";
             //이때 CarInfors의 Namespace를 가진 CarinforsMapper에서의 selectbyUID는
             // result type이 Map임
 

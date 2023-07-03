@@ -3,33 +3,32 @@
 <mapper namespace="CarInfors">
 <!-- 가능하면 namespace와 파일 이름은 동일 -->
 <!-- xml파일은 현 위치에 ...Mapper.xml로 -->
+ <!-- 변수 표시 -->
 
 	<select id="selectByUID" parameterType="Map"
 		resultType="Map">
             SELECT * 
             FROM db_cars.car_infors
-            
-            <!-- 변수 표시 -->
-            WHERE CAR_INFOR_ID = #(CAR_INFOR_ID);
+            WHERE CAR_INFOR_ID = #{CAR_INFOR_ID};
 	</select>
 
 <!-- 입력. ID는 유일해야 함 -->
 <insert id="insert" parameterType="Map">
             INSERT INTO car_infors(CAR_NAME, YEAR, CAR_INFOR_ID, COMPANY_ID)
-            VALUES (#(Car_NAME), #(YEAR), #(CAR_INFOR_ID), #(COMPANY_ID));
+            VALUES (#{Car_NAME}, #{YEAR}, #{CAR_INFOR_ID}, #{COMPANY_ID});
 </insert>
 
 <!-- 수정 -->
 <update id="update" parameterType="Map">
             UPDATE car_infors
-            SET CAR_NAME = #(CAR_NAME)
-            WHERE CAR_INFOR_ID = #(CAR_INFOR_ID)
+            SET CAR_NAME = #{CAR_NAME}
+            WHERE CAR_INFOR_ID = #{CAR_INFOR_ID}
 </update>
 
 <!-- 삭제 -->
 <delete id="delete" parameterType="Map">
         DELETE FROM car_infors
-WHERE CAR_INOFR_ID = #(CAR_INFOR_ID);
+WHERE CAR_INOFR_ID = #{CAR_INFOR_ID};
 </delete>
 
 </mapper>
