@@ -1,6 +1,7 @@
 package com.example.study_springboots_donghyun.service;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,8 @@ public class CarInforsService {
     public Object selectDetail(String CAR_INFOR_ID) {
         // Object getOne(String sqlMapId, Object dataMap){
         String sqlMapId = "CarInfors.selectByUID";
-            //이때 CarInfors의 Namespace를 가진 CarinforsMapper에서의 selectbyUID는
-            // result type이 Map임
+        // 이때 CarInfors의 Namespace를 가진 CarinforsMapper에서의 selectbyUID는
+        // result type이 Map임
 
         HashMap dataMap = new HashMap<>();
         dataMap.put("CAR_INFOR_ID", CAR_INFOR_ID);
@@ -29,4 +30,29 @@ public class CarInforsService {
         Object result = sharedDao.getOne(sqlMapId, dataMap);
         return result;
     }
+
+    public Object insert(Map dataMap) {
+
+        String sqlMapId = "CarInfors.insert";
+        Object result = sharedDao.insert(sqlMapId, dataMap);
+        return result;
+
+    }
+
+    public Object update(Map dataMap) {
+
+        String sqlMapId = "CarInfors.update";
+        Object result = sharedDao.update(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object delete(String CAR_INFOR_ID) {
+
+        String sqlMapId = "CarInfors.delete";
+        HashMap dataMap = new HashMap<>();
+        dataMap.put("CAR_INFOR_ID", CAR_INFOR_ID);
+        Object result = sharedDao.delete(sqlMapId, dataMap);
+        return result;
+    }
+
 }
