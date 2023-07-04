@@ -20,6 +20,22 @@ public class CarInforsController {
     @Autowired
     CarInforsService carinforsservice;
 
+    // /selectSearch/YEAR/2020
+    // /selectSearch/CAR_NAME/소
+    @GetMapping("/selectSearch/{search}/{words}")
+    public ResponseEntity selectSearch(@PathVariable String search, @PathVariable String words) {
+
+        Object result = carinforsservice.selectSearch(search, words);
+        return ResponseEntity.ok().body(result);
+    }
+
+    @GetMapping("/selectAll/{CAR_INFOR_ID}")
+    public ResponseEntity selectAll(@PathVariable String CAR_INFOR_ID) {
+
+        Object result = carinforsservice.selectAll(CAR_INFOR_ID);
+        return ResponseEntity.ok().body(result);
+    }
+
     // /selectDetail/CI002
     @GetMapping("/selectDetail/{CAR_INFOR_ID}")
     public ResponseEntity selectDetail(@PathVariable String CAR_INFOR_ID) {
@@ -51,6 +67,20 @@ public class CarInforsController {
 
         Object result = carinforsservice.delete(CAR_INFOR_ID);
         return ResponseEntity.ok().body(result);
+    }
+
+    // 2PC
+    @PostMapping("/insertDouble")
+    public ResponseEntity insertDouble(@RequestBody Map paramMap) {
+
+        Object result = null;
+        try {
+            result = carinforsservice.insert(paramMap);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return ResponseEntity.ok().body(result);
+
     }
 
 }

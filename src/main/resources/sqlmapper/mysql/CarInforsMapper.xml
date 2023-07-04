@@ -6,6 +6,38 @@
 <!-- 코드 중간에 주석 넣지 말기 -->
 <!-- 변수는 Brackets으로 -->
 
+<!-- SELECT 문만 resultType 을 Map으로 하자 -->
+
+
+        <!-- 검색 -->
+        <!-- 특수기호는 CDATA, 연결자는 CONCAT -->
+	<select id="selectSearch" parameterType="Map"
+		resultType="Map">
+            SELECT * 
+            FROM db_cars.car_infors
+            WHERE 1 = 1
+            <choose>
+                <when test="search == 'YEAR'">
+                        <![CDATA[ AND YEAR > #{words} 
+                        ]]>
+                </when>
+                <otherwise>
+                        AND CAR_NAME LIKE CONCAT(#{words}, '%')
+                </otherwise>
+                </choose>
+                ;
+	</select>
+
+        <!-- 전체 -->
+	<select id="selectAll" parameterType="Map"
+		resultType="Map">
+            SELECT * 
+            FROM db_cars.car_infors
+            WHERE 1 = 1;
+            
+	</select>
+
+
 	<select id="selectByUID" parameterType="Map"
 		resultType="Map">
             SELECT * 
@@ -13,23 +45,27 @@
             WHERE CAR_INFOR_ID = #{CAR_INFOR_ID};
 	</select>
 
-<!-- 입력. ID는 유일해야 함 -->
-<insert id="insert" parameterType="Map">
-            INSERT INTO car_infors(CAR_NAME, YEAR, CAR_INFOR_ID, COMPANY_ID)
-            VALUES (#{CAR_NAME}, #{YEAR}, #{CAR_INFOR_ID}, #{COMPANY_ID});
-</insert>
+        <!-- 입력. ID는 유일해야 함 -->
+        <insert id="insert" parameterType="Map">
+                INSERT INTO car_infors(CAR_NAME, YEAR, CAR_INFOR_ID, COMPANY_ID)
+                VALUES (#{CAR_NAME}, #{YEAR}, #{CAR_INFOR_ID}, #{COMPANY_ID});
+        </insert>
 
-<!-- 수정 -->
-<update id="update" parameterType="Map">
-            UPDATE car_infors
-            SET CAR_NAME = #{CAR_NAME}
-            WHERE CAR_INFOR_ID = #{CAR_INFOR_ID}
-</update>
+        <!-- 수정 -->
+        <update id="update" parameterType="Map">
+                UPDATE car_infors
+                SET CAR_NAME = #{CAR_NAME}
+                WHERE CAR_INFOR_ID = #{CAR_INFOR_ID}
+        </update>
 
-<!-- 삭제 -->
-<delete id="delete" parameterType="Map">
-        DELETE FROM car_infors
-WHERE CAR_INOFR_ID = #{CAR_INFOR_ID};
-</delete>
+        <!-- 삭제 -->
+        <delete id="delete" parameterType="Map">
+                DELETE FROM car_infors
+        WHERE CAR_INFOR_ID = #{CAR_INFOR_ID};
+        </delete>
+
+
+
+
 
 </mapper>
