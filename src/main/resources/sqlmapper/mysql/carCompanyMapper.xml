@@ -3,8 +3,23 @@
 <mapper namespace="carCompanies">
 
 
-
-
+<!-- 하단 오류 발생 -->
+<!-- <select id="searching" parameterType="Map"
+		resultType="Map">
+            SELECT * 
+            FROM factorys
+            WHERE 1 = 1
+            <choose>
+                <when test="<![CDATA[ COMPANY_ID LIKE 
+                CONCAT(#{name}, '%') 
+                        ]]>">
+                </when>
+                <otherwise>
+                        AND COMPANY LIKE CONCAT(#{words}, '%')
+                </otherwise>
+                </choose>
+                ;
+	</select> -->
 
 
 <!-- create -->

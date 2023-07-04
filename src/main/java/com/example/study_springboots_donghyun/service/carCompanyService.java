@@ -37,11 +37,11 @@ public Object searching(String name, String words) {
         return result;
     }
 
-    public Object searchAll (String CAR_INFOR_ID) {
+    public Object searchAll (String COMPANY_ID) {
         String sqlMapId = "carCompanies.searchAll";
 
         HashMap dataMap = new HashMap<>();
-        dataMap.put("CAR_INFOR_ID", CAR_INFOR_ID);
+        dataMap.put("COMPANY_ID", COMPANY_ID);
 
         Object result = sharedDao.getList(sqlMapId, dataMap);
         return result;
