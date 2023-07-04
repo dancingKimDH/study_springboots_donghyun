@@ -20,8 +20,14 @@ public class CarInforsController {
     @Autowired
     CarInforsService carinforsservice;
 
+    @GetMapping("/selectInUID")
+    public ResponseEntity selectInUID(@RequestBody Map paramMap) {
+        Object result = carinforsservice.selectInUID(paramMap);
+        return ResponseEntity.ok().body(result);
+    }
     // /selectSearch/YEAR/2020
     // /selectSearch/CAR_NAME/소
+
     @GetMapping("/selectSearch/{search}/{words}")
     public ResponseEntity selectSearch(@PathVariable String search, @PathVariable String words) {
 

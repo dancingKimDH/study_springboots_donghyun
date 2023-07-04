@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.study_springboots_donghyun.dao.SharedDao;
 
@@ -15,6 +17,21 @@ public class CarInforsService {
 
     @Autowired
     SharedDao sharedDao;
+
+
+    @GetMapping("/selectInUID")
+    public ResponseEntity selectInUID(Map dataMap) {
+        String sqlMapId = "CarInfors.selectInUID";
+        Object result = null;
+        try {
+            
+            
+            result = sharedDao.getList(sqlMapId, dataMap);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+        return ResponseEntity.ok().body(result);
+    }
 
     public Object selectSearch(String search, String words) {
 

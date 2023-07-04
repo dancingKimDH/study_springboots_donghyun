@@ -16,38 +16,9 @@
 
 
 
-<!-- mybatis foreach search -->
-        <select id="selectAll" parameterType="Map"
-                        resultType="Map">
-        SELECT * FROM db_cars.car_infors
-        WHERE 1 = 1
-        AND CAR_INFOR_ID IN ('CI002', 'CI004', 'CI005')
-
-                <foreach item="item" index="index" collection="list"
-                open="ID in (" separator="," close=")" nullable="true">
-                #{item}
-    </foreach>
-
-        </select>
-
 <!-- read (search) -->
 
-<select id="searching" parameterType="Map"
-		resultType="Map">
-            SELECT * 
-            FROM factorys
-            WHERE 1 = 1
-            <choose>
-                <when test="<![CDATA[ COMPANY_ID LIKE 
-                CONCAT(#{name}, '%') 
-                        ]]>">
-                </when>
-                <otherwise>
-                        AND COMPANY LIKE CONCAT(#{words}, '%')
-                </otherwise>
-                </choose>
-                ;
-	</select>
+
 
 <!-- read (search all) -->
 

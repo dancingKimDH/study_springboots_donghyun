@@ -11,7 +11,23 @@
 
         <!-- 검색 -->
         <!-- 특수기호는 CDATA, 연결자는 CONCAT -->
-	<select id="selectSearch" parameterType="Map"
+	
+        <!-- mybatis foreach Map .put("CAR_INFOR_ID_LIST", CAR_INFOR_ID_LIST) -->
+        <select id="selectInUID" parameterType="Map"
+                        resultType="Map">
+        SELECT * FROM db_cars.car_infors
+        WHERE 1 = 1
+        AND CAR_INFOR_ID IN 
+        
+                <foreach item="CAR_INFOR_ID" index="index" collection="CAR_INFOR_ID_LIST"
+                open="(" separator="," close=")" nullable="true">
+                ('CI002', 'CI004', 'CI005')
+                #{CAR_INFOR_ID}
+                </foreach>
+        </select>
+        
+        
+        <select id="selectSearch" parameterType="Map"
 		resultType="Map">
             SELECT * 
             FROM db_cars.car_infors
