@@ -16,16 +16,26 @@ public class carCompanyService {
 
     @Autowired
     SharedDao sharedDao;
-    
-public Object inserting(Map dataMap) {
-    
-    String sqlMapId = "carCompanies.inserting";
-    Object result = sharedDao.insert(sqlMapId, dataMap);
 
-    return result;
-}
+    //update
+    public Object update(Map dataMap) {
 
-public Object searching(String name, String words) {
+        String sqlMapId = "carCompanies.update";
+        Object result = sharedDao.update(sqlMapId, dataMap);
+        return result;
+    }
+    
+    
+    // insert
+    public Object inserting(Map dataMap) {
+
+        String sqlMapId = "carCompanies.inserting";
+        Object result = sharedDao.insert(sqlMapId, dataMap);
+
+        return result;
+    }
+    // search specific
+    public Object searching(String name, String words) {
 
         String sqlMapId = "carCompanies.searching";
 
@@ -37,7 +47,8 @@ public Object searching(String name, String words) {
         return result;
     }
 
-    public Object searchAll (String COMPANY_ID) {
+    // search all
+    public Object searchAll(String COMPANY_ID) {
         String sqlMapId = "carCompanies.searchAll";
 
         HashMap dataMap = new HashMap<>();
@@ -46,7 +57,5 @@ public Object searching(String name, String words) {
         Object result = sharedDao.getList(sqlMapId, dataMap);
         return result;
     }
-
-
 
 }

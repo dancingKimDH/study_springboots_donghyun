@@ -46,7 +46,15 @@
 	</select>
 
 <!-- update -->
+
+
+
 <!-- delete -->
 
+        <update id="update" parameterType="Map">
+                UPDATE factorys
+                SET COMPANY_ID = #{COMPANY_ID}
+                WHERE COMPANY_ID = #{COMPANY_IDD}
+        </update>
 
 </mapper>
