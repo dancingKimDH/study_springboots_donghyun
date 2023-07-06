@@ -1,4 +1,4 @@
-package com.example.study_springboots_donghyun.restapis;
+package com.example.study_springboots_donghyun.controller;
 
 import java.util.Map;
 
