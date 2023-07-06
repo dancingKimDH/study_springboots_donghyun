@@ -26,7 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/carInfor")
-public class CarInforsController {
+public class CarRESTController {
 
     @Autowired
     CarInforsService carinforsservice;
@@ -39,6 +39,7 @@ public class CarInforsController {
     // /selectSearch/YEAR/2020
     // /selectSearch/CAR_NAME/소
 
+    
     @GetMapping("/selectSearch/{search}/{words}")
     public ResponseEntity selectSearch(@PathVariable String search, @PathVariable String words) {
 
